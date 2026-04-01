@@ -1,0 +1,118 @@
+[
+  {
+    "code": "BS-JK-001",
+    "title": "Campera Detalhada",
+    "category": "Hombre",
+    "type": "Jaqueta",
+    "price_usd": 17,
+    "price_brl": 87.6435,
+    "sizes": "L,XL,XXL",
+    "stock": 20,
+    "box_quantity": 12,
+    "description": "Chaqueta acolchada de invierno",
+    "variants": [
+      {
+        "color": "Verde",
+        "hex": "#3f5f45",
+        "frontImage": "https://lh3.googleusercontent.com/d/11qMtMuT8hPENYIoZLlZcFCzrZpEL51C7",
+        "modelImage": "https://lh3.googleusercontent.com/d/11qMtMuT8hPENYIoZLlZcFCzrZpEL51C7"
+      },
+      {
+        "color": "Negro",
+        "hex": "#111111",
+        "frontImage": "https://lh3.googleusercontent.com/d/1AlK8OijubVlZkV-QpRXEgltqIxq7jTqR",
+        "modelImage": "https://lh3.googleusercontent.com/d/1AlK8OijubVlZkV-QpRXEgltqIxq7jTqR"
+      },
+      {
+        "color": "Azul",
+        "hex": "#1d4f91",
+        "frontImage": "https://lh3.googleusercontent.com/d/1IXDN7Cti6TBgKhHJWAnZz0O0dloDnolW",
+        "modelImage": "https://lh3.googleusercontent.com/d/1IXDN7Cti6TBgKhHJWAnZz0O0dloDnolW"
+      }
+    ]
+  },
+  {
+    "code": "BS-JK-002",
+    "title": "Campera Puffer",
+    "category": "Hombre",
+    "type": "Jaqueta",
+    "price_usd": 18,
+    "price_brl": 92.799,
+    "sizes": "L,XL,XXL",
+    "stock": 30,
+    "box_quantity": 12,
+    "description": "Chaqueta acolchada de invierno",
+    "variants": [
+      {
+        "color": "Negro",
+        "hex": "#111111",
+        "frontImage": "https://lh3.googleusercontent.com/d/1m-lF7GmKVJiM8UcBjkmpTFSO3SCh-JZ3",
+        "modelImage": "https://lh3.googleusercontent.com/d/1m-lF7GmKVJiM8UcBjkmpTFSO3SCh-JZ3"
+      },
+      {
+        "color": "Verde",
+        "hex": "#3f5f45",
+        "frontImage": "https://lh3.googleusercontent.com/d/1l2-zaCoYEGVxX4g6vFtFFeOv8aZ42P1m",
+        "modelImage": "https://lh3.googleusercontent.com/d/1l2-zaCoYEGVxX4g6vFtFFeOv8aZ42P1m"
+      },
+      {
+        "color": "Blanco",
+        "hex": "#e5e7eb",
+        "frontImage": "https://lh3.googleusercontent.com/d/1ctBbOoMHTHmwqXFEjMVkShnA_utv33-x",
+        "modelImage": "https://lh3.googleusercontent.com/d/1ctBbOoMHTHmwqXFEjMVkShnA_utv33-x"
+      }
+    ]
+  },
+  {
+    "code": "BS-JK-003",
+    "title": "Campera Puffer v2",
+    "category": "Hombre",
+    "type": "Colete & Jaqueta",
+    "price_usd": 20,
+    "price_brl": 103.11,
+    "sizes": "L,XL,XXL",
+    "stock": 40,
+    "box_quantity": 12,
+    "description": "Chaqueta acolchada de invierno",
+    "variants": [
+      {
+        "color": "Negro",
+        "hex": "#111111",
+        "frontImage": "https://lh3.googleusercontent.com/d/1gRYSNDy49wKRgc2X-Ri-wD-7sk6Kqp3S",
+        "modelImage": "https://lh3.googleusercontent.com/d/1gRYSNDy49wKRgc2X-Ri-wD-7sk6Kqp3S"
+      },
+      {
+        "color": "Negro 2",
+        "hex": "#2f2f2f",
+        "frontImage": "https://lh3.googleusercontent.com/d/1xFfeRvAUwwDpnhbveUYLP8CrHufMK5BW",
+        "modelImage": "https://lh3.googleusercontent.com/d/1xFfeRvAUwwDpnhbveUYLP8CrHufMK5BW"
+      }
+    ]
+  },
+  {
+    "code": "BS-WJ-001",
+    "title": "Campera Mujer",
+    "category": "Mujer",
+    "type": "Jaqueta",
+    "price_usd": 19,
+    "price_brl": 98.50,
+    "sizes": "M,L,XL",
+    "stock": 15,
+    "box_quantity": 12,
+    "description": "Chaqueta femenina de invierno",
+    "variants": [
+      {
+        "color": "Beige",
+        "hex": "#c8b79c",
+        "frontImage": "https://lh3.googleusercontent.com/d/1n9O8-7J-dnbQpGtvKtm65ZeJM7kCfbFe",
+        "modelImage": "https://lh3.googleusercontent.com/d/1n9O8-7J-dnbQpGtvKtm65ZeJM7kCfbFe"
+      },
+      {
+        "color": "Negro",
+        "hex": "#111111",
+        "frontImage": "https://lh3.googleusercontent.com/d/1wL5VSe1Uz_A4CkLssM_RSZhZnSwZFNja",
+        "modelImage": "https://lh3.googleusercontent.com/d/1wL5VSe1Uz_A4CkLssM_RSZhZnSwZFNja"
+      }
+    ]
+  }
+]

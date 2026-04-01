@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIG SALE MODAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="BIG SALE MODAS">
+        <div class="brand-mark" id="brandMark">BS</div>
+        <div class="brand-meta">
+          <small>BIG SALE MODAS</small>
+          <strong id="brandName">Moda Atacado</strong>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#about">Nosotros</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-copy">
+          <div class="pill">Catálogo mayorista</div>
+          <h1>Chaquetas y conjuntos para tu negocio</h1>
+          <p>
+            Explorá nuestra colección de chaquetas y conjuntos por categoría, color y disponibilidad.
+            Consultanos directamente por WhatsApp para precios, stock y pedidos.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#catalogo">Ver catálogo</a>
+            <a class="btn btn-light" id="heroWhatsApp" href="#">Contactar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="panel hero-showcase">
+          <div class="hero-image">
+            <img
+              src="https://lh3.googleusercontent.com/d/11qMtMuT8hPENYIoZLlZcFCzrZpEL51C7"
+              alt="Producto destacado"
+            />
+          </div>
+          <div class="hero-card">
+            <div class="eyebrow hero-eyebrow">Colección destacada</div>
+            <h2>Productos listos para consultar</h2>
+            <p>
+              Revisá colores disponibles, detalles del producto y contactanos directamente para consultas y pedidos.
+            </p>
+
+            <div class="feature-list">
+              <div class="feature-row">
+                <span>Categorías</span>
+                <strong>Hombre / Mujer / Niños</strong>
+              </div>
+              <div class="feature-row">
+                <span>Colores</span>
+                <strong>Variantes disponibles</strong>
+              </div>
+              <div class="feature-row">
+                <span>Pedidos</span>
+                <strong>WhatsApp</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Colección</div>
+            <h2>Nuestro catálogo</h2>
+          </div>
+          <p>
+            Explorá nuestros productos por categoría, buscá por código o nombre y consultá disponibilidad.
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <input type="text" id="searchInput" placeholder="Buscar por código, nombre o color..." />
+          </div>
+
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="Hombre">Hombre</button>
+            <button class="filter-btn" data-filter="Mujer">Mujer</button>
+            <button class="filter-btn" data-filter="Niños">Niños</button>
+            <button class="filter-btn" data-filter="Pijamas">Pijamas</button>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container info-grid">
+        <div class="info-card">
+          <div class="eyebrow">Nosotros</div>
+          <h3>Moda mayorista con presentación moderna</h3>
+          <p>
+            BIG SALE MODAS ofrece una forma más profesional de mostrar productos a clientes.
+            El objetivo es facilitar consultas, compartir el catálogo rápidamente y mejorar la imagen del negocio.
+          </p>
+        </div>
+
+        <div class="contact-card" id="contact">
+          <div class="eyebrow hero-eyebrow">Contacto</div>
+          <h3>Hablemos por WhatsApp</h3>
+          <p>
+            Consultá modelos, colores, stock y pedidos mayoristas directamente con nosotros.
+          </p>
+
+          <div class="contact-actions-large">
+            <a class="btn btn-dark" id="footerWhatsApp" href="#">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 BIG SALE MODAS. Catálogo digital.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
