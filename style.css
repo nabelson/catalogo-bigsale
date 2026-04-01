@@ -343,11 +343,18 @@ h1 {
 }
 
 .search {
-  flex: 1 1 280px;
+  flex: 0 1 420px;
+  max-width: 420px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 0 16px;
   gap: 10px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  min-height: 52px;
+  box-shadow: var(--shadow-soft);
 }
 
 .search input {
