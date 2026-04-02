@@ -1,7 +1,7 @@
 const SITE_CONFIG = {
   brandName: "BIG SALE MODAS",
   logoText: "BS",
-  logoImage: "",
+  logoImage: "logo.png",
 
   whatsapp1: {
     number: "5545999591406",
@@ -97,6 +97,11 @@ function createProductCard(product) {
   const brlPrice = Number(product.price_brl).toFixed(2);
   const stockClass = product.stock <= 0 ? "out" : product.stock <= 10 ? "low" : "in";
   const stockLabel = product.stock <= 0 ? "Agotado" : `Stock: ${product.stock}`;
+  const stockNote = product.stock <= 0
+  ? "Agotado"
+  : product.stock <= 10
+    ? "Últimas unidades"
+    : "";
 
   const waMessage = encodeURIComponent(
     `Hola, me interesa este producto: ${product.code} - ${product.title} - Color: ${variant.color}`
@@ -117,8 +122,8 @@ function createProductCard(product) {
     ></button>
   `).join("");
 
-  return `
-    <article class="product-card">
+      return `
+    <article class="product-card ${product.stock <= 0 ? "out-of-stock" : product.stock <= 10 ? "low-stock" : ""}">
       <div class="product-media">
         <img src="${image}" alt="${product.title} en color ${variant.color}" loading="lazy" />
         <div class="badge-row">
@@ -132,13 +137,14 @@ function createProductCard(product) {
           <div>
             <h3>${product.title}</h3>
             <div class="product-code">${product.code}</div>
+            ${stockNote ? `<div class="stock-note ${stockClass}">${stockNote}</div>` : ""}
           </div>
         </div>
 
         <p class="product-desc">${product.description}</p>
-        
+
         <div class="colors">${variantDots}</div>
-        
+
         <div class="product-prices">
           <div><strong>USD:</strong> ${usdPrice}</div>
           <div><strong>BRL:</strong> ${brlPrice}</div>
@@ -173,8 +179,6 @@ function createProductCard(product) {
           </button>
         </div>
 
-        
-
         <div class="product-footer">
           <div class="color-name">Color: <strong>${variant.color}</strong></div>
           <div class="contact-actions">
@@ -182,10 +186,21 @@ function createProductCard(product) {
               class="mini-btn"
               href="${wa1}"
               target="_blank"
+              rel="noreferrer"
             >
               WhatsApp
             </a>
 
+            <!--
+            <a
+              class="mini-btn"
+              href="${wa2}"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp 2
+            </a>
+            -->
           </div>
         </div>
       </div>
@@ -194,6 +209,11 @@ function createProductCard(product) {
 }
 
 function renderCatalog() {
+  const loadingMessage = document.getElementById("loadingMessage");
+  if (loadingMessage) {
+    loadingMessage.style.display = "none";
+  }
+
   const filtered = PRODUCTS.filter((product) => {
     const term = state.search.toLowerCase();
 
@@ -207,6 +227,16 @@ function renderCatalog() {
       state.filter === "all" || product.category === state.filter;
 
     return matchesSearch && matchesFilter;
+  });
+    
+  filtered.sort((a, b) => {
+    const getPriority = (product) => {
+      if (product.stock <= 0) return 2;   // last
+      if (product.stock <= 10) return 1;  // middle
+      return 0;                           // first
+    };
+
+    return getPriority(a) - getPriority(b);
   });
 
   if (!filtered.length) {
@@ -262,10 +292,44 @@ const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbxnsPEG24IcZDOdbN
 fetch(SHEET_API_URL)
   .then(response => response.json())
   .then(data => {
+
+    const loadingMessage = document.getElementById("loadingMessage");
+    if (loadingMessage) {
+      loadingMessage.style.display = "none";
+    }
+
     PRODUCTS = data;
+
     setupSiteConfig();
     renderCatalog();
+
   })
   .catch(error => {
+
+    const loadingMessage = document.getElementById("loadingMessage");
+
+    if (loadingMessage) {
+      loadingMessage.textContent = "Error al cargar productos.";
+    }
+
     console.error("Error loading sheet data:", error);
+
   });
+
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (!backToTopBtn) return;
+
+  if (window.scrollY > 500) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
