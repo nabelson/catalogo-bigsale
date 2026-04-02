@@ -81,7 +81,7 @@ function getCurrentVariant(product) {
 }
 
 function getCurrentView(product) {
-  return state.viewByProduct[product.code] || "model";
+  return state.viewByProduct[product.code] || "front";
 }
 
 function getCurrentImage(product) {
