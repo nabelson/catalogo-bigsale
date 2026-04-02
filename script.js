@@ -124,8 +124,27 @@ function createProductCard(product) {
 
       return `
     <article class="product-card ${product.stock <= 0 ? "out-of-stock" : product.stock <= 10 ? "low-stock" : ""}">
-      <div class="product-media">
+      <div class="product-media" data-swipe-product="${product.code}">
+        <button
+          class="media-nav media-nav-left"
+          data-action="prev-variant"
+          data-product-code="${product.code}"
+          aria-label="Color anterior"
+        >
+          ‹
+        </button>
+
         <img src="${image}" alt="${product.title} en color ${variant.color}" loading="lazy" />
+
+        <button
+          class="media-nav media-nav-right"
+          data-action="next-variant"
+          data-product-code="${product.code}"
+          aria-label="Color siguiente"
+        >
+          ›
+        </button>
+
         <div class="badge-row">
           <div class="badge">${product.category}</div>
           <div class="badge stock ${stockClass}">${stockLabel}</div>
@@ -251,6 +270,7 @@ function renderCatalog() {
   }
 
   catalogGrid.innerHTML = filtered.map(createProductCard).join("");
+  setupSwipeSupport();
 }
 
 if (searchInput) {
@@ -276,6 +296,12 @@ document.addEventListener("click", (event) => {
   const action = target.dataset.action;
   const productCode = target.dataset.productCode;
 
+  const product = PRODUCTS.find(p => p.code === productCode);
+  if (!product) return;
+
+  const currentIndex = state.variantByProduct[productCode] ?? 0;
+  const maxIndex = product.variants.length - 1;
+
   if (action === "view") {
     state.viewByProduct[productCode] = target.dataset.view;
     renderCatalog();
@@ -283,11 +309,67 @@ document.addEventListener("click", (event) => {
 
   if (action === "variant") {
     state.variantByProduct[productCode] = Number(target.dataset.variantIndex);
+    state.viewByProduct[productCode] = "front";
+    renderCatalog();
+  }
+
+  if (action === "prev-variant") {
+    const newIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+    state.variantByProduct[productCode] = newIndex;
+    state.viewByProduct[productCode] = "front";
+    renderCatalog();
+  }
+
+  if (action === "next-variant") {
+    const newIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+    state.variantByProduct[productCode] = newIndex;
+    state.viewByProduct[productCode] = "front";
     renderCatalog();
   }
 });
 
 const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbxnsPEG24IcZDOdbNtVfpF8nJXepqdipRytxDBmj4wL4kDX74U6H52BOBj0XE7jlut1/exec";
+
+function setupSwipeSupport() {
+  const swipeAreas = document.querySelectorAll("[data-swipe-product]");
+
+  swipeAreas.forEach(area => {
+    let startX = 0;
+    let endX = 0;
+
+    area.addEventListener("touchstart", (e) => {
+      startX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    area.addEventListener("touchend", (e) => {
+      endX = e.changedTouches[0].clientX;
+
+      const diff = endX - startX;
+      const threshold = 40;
+
+      const productCode = area.dataset.swipeProduct;
+      const product = PRODUCTS.find(p => p.code === productCode);
+      if (!product) return;
+
+      const currentIndex = state.variantByProduct[productCode] ?? 0;
+      const maxIndex = product.variants.length - 1;
+
+      if (Math.abs(diff) < threshold) return;
+
+      if (diff < 0) {
+        const newIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        state.variantByProduct[productCode] = newIndex;
+        state.viewByProduct[productCode] = "front";
+        renderCatalog();
+      } else {
+        const newIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+        state.variantByProduct[productCode] = newIndex;
+        state.viewByProduct[productCode] = "front";
+        renderCatalog();
+      }
+    }, { passive: true });
+  });
+}
 
 fetch(SHEET_API_URL)
   .then(response => response.json())
