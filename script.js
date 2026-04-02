@@ -264,7 +264,9 @@ document.addEventListener("click", (event) => {
   }
 });
 
-fetch("products.json")
+const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbxnsPEG24IcZDOdbNtVfpF8nJXepqdipRytxDBmj4wL4kDX74U6H52BOBj0XE7jlut1/exec";
+
+fetch(SHEET_API_URL)
   .then(response => response.json())
   .then(data => {
     PRODUCTS = data;
@@ -272,5 +274,5 @@ fetch("products.json")
     renderCatalog();
   })
   .catch(error => {
-    console.error("Error loading products:", error);
+    console.error("Error loading sheet data:", error);
   });
