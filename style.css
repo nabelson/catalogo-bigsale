@@ -529,10 +529,23 @@ input {
   cursor: pointer;
 }
 
+.btn-light {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  box-shadow: none;
+}
+
 .btn-dark {
   background: var(--accent);
   color: #fff;
   box-shadow: 0 14px 28px rgba(31, 26, 23, 0.18);
+}
+
+.btn-light:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.28);
+  color: #fff;
 }
 
 footer {
