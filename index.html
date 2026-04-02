@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BIG SALE MODAS</title>
+  <title>BIG SALE MODAS - CATALOGO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -12,6 +12,7 @@
   />
   <link rel="stylesheet" href="style.css?v=2" />
 </head>
+<button id="backToTop" aria-label="Volver arriba">↑</button>
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -57,8 +58,9 @@
             <button class="filter-btn" data-filter="Pijamas">Pijamas</button>
           </div>
         </div>
-
+        <div id="loadingMessage" class="loading-message">Cargando productos...</div>
         <div class="catalog-grid" id="catalogGrid"></div>
+        
       </div>
     </section>
 
