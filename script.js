@@ -136,7 +136,9 @@ function createProductCard(product) {
         </div>
 
         <p class="product-desc">${product.description}</p>
-
+        
+        <div class="colors">${variantDots}</div>
+        
         <div class="product-prices">
           <div><strong>USD:</strong> ${usdPrice}</div>
           <div><strong>BRL:</strong> ${brlPrice}</div>
@@ -171,7 +173,7 @@ function createProductCard(product) {
           </button>
         </div>
 
-        <div class="colors">${variantDots}</div>
+        
 
         <div class="product-footer">
           <div class="color-name">Color: <strong>${variant.color}</strong></div>
