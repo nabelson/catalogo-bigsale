@@ -207,7 +207,7 @@ function createProductCard(product) {
               target="_blank"
               rel="noreferrer"
             >
-              WhatsApp
+              WhatsApp 1
             </a>
 
            
