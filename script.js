@@ -42,12 +42,9 @@ function setupSiteConfig() {
     brandNameEl.textContent = SITE_CONFIG.brandName;
   }
 
-  if (brandMarkEl) {
-    brandMarkEl.textContent = SITE_CONFIG.logoText || "BS";
 
-    if (SITE_CONFIG.logoImage) {
-      brandMarkEl.innerHTML = `<img src="${SITE_CONFIG.logoImage}" alt="${SITE_CONFIG.brandName} logo">`;
-    }
+  if (SITE_CONFIG.logoImage) {
+    brandMarkEl.innerHTML = `<img src="${SITE_CONFIG.logoImage}" alt="${SITE_CONFIG.brandName} logo">`;
   }
 
   const message = encodeURIComponent(
