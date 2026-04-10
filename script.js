@@ -210,7 +210,7 @@ function createProductCard(product) {
               WhatsApp
             </a>
 
-            <!--
+           
             <a
               class="mini-btn"
               href="${wa2}"
@@ -219,7 +219,7 @@ function createProductCard(product) {
             >
               WhatsApp 2
             </a>
-            -->
+     
           </div>
         </div>
       </div>
