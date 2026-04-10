@@ -101,7 +101,7 @@ function createProductCard(product) {
   const currentView = getCurrentView(product);
   const usdPrice = Number(product.price_usd).toFixed(2);
   const stockClass = product.stock <= 0 ? "out" : product.stock <= 10 ? "low" : "in";
-  const stockLabel = product.stock <= 0 ? "Agotado" : `Disponible`;
+  const stockLabel = product.stock <= 0 ? "Agotado" : "Disponible";
   const stockNote = product.stock <= 0
   ? "Agotado"
   : product.stock <= 10
